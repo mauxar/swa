@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://bootswatch.com/5/sketchy/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="./js/FileSaver.js"></script>
+    <title>Descifrar</title>
+</head>
+
+<body>
+    <h4>Aguirre Gutiérrez Mauricio Alberto 5IV8</h4>
+    <h1>DECIFRADO AES</h1>
+
+    <h2>Busca el archivo</h2>
+    <div class="container">
+        <input class="btn btn-primary" type="file" id="file-input">
+    </div>
+    <div class="container">
+        <textarea id="contenido-archivo" cols="80" rows="0" readonly></textarea>
+    </div>
+
+    <h2>Ingresa la llave</h2>
+    <div class="container">
+        <textarea name="password" id="demo1" cols="80" rows="0"></textarea>
+    </div>
+
+    <h2>Descifra tu mensaje</h2>
+    <div class="container">
+        <button class="btn btn-primary" onclick="dfv()">Descifrar</button>
+    </div>
+
+    <h2>Previsualización</h2>
+    <div class="container">
+        <textarea id="caso" cols="80" rows="0" readonly></textarea>
+    </div>
+    <br>
+    <div class="container">
+        <textarea id="saldjp" cols="80" rows="0" readonly></textarea>
+    </div>
+
+    <h2>Selecciona el tipo de archivo</h2>
+    <div class="container">
+        <button id="s" class="btn btn-primary">TXT</button>
+        <button id="d" class="btn btn-primary">DOC</button>
+        <button id="f" class="btn btn-primary">PDF</button>
+    </div>
+
+    <footer>
+        <div id="arrow_left">
+            <a href="Cifrar.html" aria-label="Página para cifrar">
+                <center><button  class="btn btn-primary">CIFRAR</button></center>
+            </a>
+            
+        </div>
+    </footer>
+
+    <script>
+        $("#s").click(function () {
+            var cth = document.getElementById("saldjp").value;
+            var blob = new Blob([cth], { type: "text/plain;charset=utf-8" });
+            if (cth == "") {
+                alert("Primero cifra tu mensaje");
+            } else {
+                saveAs(blob, "Mensaje_descifrado.txt");
+            }
+        });
+    </script>
+    <script>
+        $("#d").click(function () {
+            var cth = document.getElementById("saldjp").value;
+            var blob = new Blob([cth], { type: "text/plain;charset=utf-8" });
+            if (cth == "") {
+                alert("Primero cifra tu mensaje);
+            } else {
+                saveAs(blob, "Mensaje_descifrado.doc");
+            }
+        });
+    </script>
+    <script>
+        $("#f").click(function () {
+            var cth = document.getElementById("saldjp").value;
+            var blob = new Blob([cth], { type: "text/plain;charset=utf-8" });
+            if (cth == "") {
+                alert("Primero cifra tu mensaje);
+            } else {
+                saveAs(blob, "Mensaje_descifrado.pdf");
+            }
+        });
+    </script>
+    <script src="./js/aes.js"></script>
+</body>
+
+</html>
